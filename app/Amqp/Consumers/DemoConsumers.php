@@ -11,6 +11,7 @@ use Hyperf\Amqp\Result;
 /**
  * Class DemoConsumers
  * @package App\Amqp\Consumers
+ * @Consumer(exchange="pis0sion-1",routingKey="pis0sion-1-key",queue="handle",nums=1)
  */
 class DemoConsumers extends ConsumerMessage
 {

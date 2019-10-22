@@ -1,10 +1,3 @@
-# Default Dockerfile
-#
-# @link     https://www.hyperf.io
-# @document https://doc.hyperf.io
-# @contact  group@hyperf.io
-# @license  https://github.com/hyperf-cloud/hyperf/blob/master/LICENSE
-
 FROM hyperf/hyperf:7.3-alpine-cli
 LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT"
 
@@ -44,10 +37,10 @@ RUN set -ex \
     && echo "${TIMEZONE}" > /etc/timezone \
     # ---------- clear works ----------
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \
-    && echo -e "\033[42;37m Build Completed :).\033[0m\n" \
-    && mkdir /hyperf
+    && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 
-COPY . /hyperf
+COPY . /opt/www
+
 #WORKDIR /hyperf/.build
 #
 ## 这里的地址，以客户端中显示的为准
@@ -57,12 +50,12 @@ COPY . /hyperf
 #    && cp swoole-tracker.ini /etc/php7/conf.d/swoole-tracker.ini \
 #    && php -m
 
-WORKDIR /hyperf
+WORKDIR /opt/www
 
 RUN composer install --no-dev \
     && composer dump-autoload -o \
-    && php /hyperf/bin/hyperf.php di:init-proxy
+    && php /opt/www/bin/hyperf.php di:init-proxy
 
 EXPOSE 9501
 
-ENTRYPOINT ["php", "/hyperf/bin/hyperf.php","start"]
+ENTRYPOINT ["php", "/opt/www/bin/hyperf.php", "start"]
