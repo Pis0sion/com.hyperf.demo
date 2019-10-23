@@ -14,6 +14,3 @@ use Hyperf\HttpServer\Router\Router;
 
 Router::addRoute(['GET', 'POST', 'HEAD'], '/index', 'App\Controller\IndexController@index');
 
-Router::addServer('ws', function () {
-    Router::get('/', 'App\Controller\PointToPointController');
-});

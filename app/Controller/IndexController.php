@@ -12,10 +12,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Common\IDemo;
-use Hyperf\Di\Annotation\Inject;
-use Psr\Container\ContainerInterface;
+use Hyperf\HttpServer\Annotation\AutoController;
 
+/**
+ * Class IndexController
+ * @package App\Controller\
+ * @AutoController()
+ */
 class IndexController extends AbstractController
 {
     public function index()
