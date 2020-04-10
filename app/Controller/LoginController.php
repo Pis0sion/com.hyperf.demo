@@ -26,9 +26,10 @@ class LoginController implements OnOpenInterface , OnMessageInterface , OnCloseI
         return "world" ;
     }
 
-    public function onMessage(Server $server, Frame $frame): void
+    public function onMessage(Server $server, Frame $frame): string
     {
         // TODO: Implement onMessage() method.
+        return "pis0sion" ;
     }
 
 }
