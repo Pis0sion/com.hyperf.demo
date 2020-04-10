@@ -20,9 +20,10 @@ class LoginController implements OnOpenInterface , OnMessageInterface , OnCloseI
         return "hello" ;
     }
 
-    public function onClose(\Swoole\Server $server, int $fd, int $reactorId): void
+    public function onClose(\Swoole\Server $server, int $fd, int $reactorId): string
     {
         // TODO: Implement onClose() method.
+        return "world" ;
     }
 
     public function onMessage(Server $server, Frame $frame): void
