@@ -14,9 +14,10 @@ use Swoole\WebSocket\Server;
 class LoginController implements OnOpenInterface , OnMessageInterface , OnCloseInterface
 {
 
-    public function onOpen(Server $server, Request $request): void
+    public function onOpen(Server $server, Request $request): string
     {
         // TODO: Implement onOpen() method.
+        return "hello" ;
     }
 
     public function onClose(\Swoole\Server $server, int $fd, int $reactorId): void
